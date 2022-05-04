@@ -1,6 +1,10 @@
 package net.fabricmc.example;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.example.enchants.Lifesteal;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,7 +13,11 @@ public class ExampleMod implements ModInitializer {
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger("modid");
-
+	private static Enchantment LIFESTEAL = Registry.register(
+			Registry.ENCHANTMENT,
+			new Identifier("test", "lifesteal"),
+			new Lifesteal()
+	);
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
