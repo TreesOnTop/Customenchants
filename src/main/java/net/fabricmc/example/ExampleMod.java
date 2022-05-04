@@ -13,9 +13,9 @@ public class ExampleMod implements ModInitializer {
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger("modid");
-	private static Enchantment LIFESTEAL = Registry.register(
+	private static final Enchantment LIFESTEAL = Registry.register(
 			Registry.ENCHANTMENT,
-			new Identifier("test", "lifesteal"),
+			new Identifier("customenchants", "lifesteal"),
 			new Lifesteal()
 	);
 	@Override
@@ -26,4 +26,6 @@ public class ExampleMod implements ModInitializer {
 
 		LOGGER.info("Hello Fabric world!");
 	}
+	private static ExampleMod mainClass;
+	public static ExampleMod getMainClass() { return mainClass; }
 }
